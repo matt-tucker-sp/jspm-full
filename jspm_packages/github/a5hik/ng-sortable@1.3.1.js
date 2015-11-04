@@ -1,0 +1,1 @@
+module.exports = require("github:a5hik/ng-sortable@1.3.1/ng-sortable");

@@ -1,0 +1,1 @@
+module.exports = require("github:tbosch/autofill-event@1.0.0/src/autofill-event");

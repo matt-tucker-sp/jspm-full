@@ -1,0 +1,1 @@
+module.exports = require("npm:fuelux@3.11.5/dist/js/npm");
