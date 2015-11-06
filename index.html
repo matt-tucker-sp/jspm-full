@@ -1,0 +1,23 @@
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+<!-- build:js js/ThingAppBundle.min.js -->
+<script src="jspm_packages/system.js"></script>
+<script src="config.js"></script>
+<script>
+  System.import('app/ThingApp.js');
+</script>
+<!-- /build -->
+<div>
+  <ui-view>
+    <div ng-controller="ThingGetterCtrl as ctrl" >
+      <h2> {{ ctrl.getThatThing() }} </h2>
+    </div>
+    
+    <div sp-thing-putter></div>
+  </ui-view>
+</div>
+</body>
+</html>

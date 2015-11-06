@@ -1,0 +1,12 @@
+<div>
+  <button ng-click="putterCtrl.increment()">
+    Increment  
+  </button>
+</div>
+<div> Count {{ putterCtrl.getCount() }} </div>
+<div>
+  <input id="putThingHere" type="text" ng-model="putterCtrl.enteredThing" />
+  <label for="putThingHere">PUT THING HERE</label>
+  <button ng-click="putterCtrl.storeThing(putterCtrl.enteredThing)" > PUT IT</button>
+  
+</div>

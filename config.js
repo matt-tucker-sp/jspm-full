@@ -18,6 +18,7 @@ System.config({
     "angular": "github:angular/bower-angular@1.3.15",
     "angular-bootstrap": "github:angular-ui/bootstrap-bower@0.13.0",
     "angular-translate": "github:angular-translate/bower-angular-translate@2.8.1",
+    "angular-ui/bootstrap-bower": "github:angular-ui/bootstrap-bower@0.13.0",
     "babel": "npm:babel-core@5.8.33",
     "babel-runtime": "npm:babel-runtime@5.8.29",
     "bootstrap": "github:twbs/bootstrap@3.3.4",
@@ -27,11 +28,15 @@ System.config({
     "ng-sortable": "github:a5hik/ng-sortable@1.3.1",
     "rendro/easy-pie-chart": "github:rendro/easy-pie-chart@2.1.6",
     "tbosch/autofill-event": "github:tbosch/autofill-event@1.0.0",
+    "text": "github:systemjs/plugin-text@0.0.3",
     "github:a5hik/ng-sortable@1.3.1": {
       "angular": "github:angular/bower-angular@1.3.15",
       "css": "github:systemjs/plugin-css@0.1.19"
     },
     "github:angular-translate/bower-angular-translate@2.8.1": {
+      "angular": "github:angular/bower-angular@1.3.15"
+    },
+    "github:angular-ui/bootstrap-bower@0.13.0": {
       "angular": "github:angular/bower-angular@1.3.15"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
