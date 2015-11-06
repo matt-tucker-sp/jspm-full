@@ -1,19 +1,24 @@
 import ThingGetterCtrl from 'app/ThingGetter/ThingGetterCtrl';
-import ThingStorageService from 'app/ThingStorage/ThingStorageService';
 
-let thingStorageService;
-let thingGetterCtrl;
+let thingStorageService, thingGetterCtrl, thingValue;
 
 describe('ThingGetterCtrl', function() {
 
     beforeEach(function() {
-        thingStorageService = new ThingStorageService();
+        thingStorageService = {
+            getTheThing: jasmine.createSpy().and.callFake(function() {
+                return thingValue;
+            })
+        };
         thingGetterCtrl = new ThingGetterCtrl(thingStorageService);
     });
 
     describe('getThatThing', function( ) {
         it ('returns the thing', function() {
-            expect(thingGetterCtrl.getThatThing()).toEqual(thingStorageService.getTheThing());
+            thingValue = 'some dumb value';
+            let gotValue = thingGetterCtrl.getThatThing();
+            expect(thingStorageService.getTheThing).toHaveBeenCalled();
+            expect(gotValue).toEqual(thingValue);
         });
     });
 

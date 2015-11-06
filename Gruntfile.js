@@ -3,18 +3,9 @@
 module.exports = function (grunt) {
     
     // Project configuration.
-    /*jshint camelcase: false */
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        copy: {
-            all: {
-                src: 'app/**/*',
-                dest: 'build',
-                expand: true
-            }
-        },
-        
         jshint: {
             all: { src: [
                 'Gruntfile.js',
@@ -26,6 +17,9 @@ module.exports = function (grunt) {
             }
         },
         
+        // This calls 'jspm bundle-sfx' on the command line to build a bundle.
+        // It's parameterized so we can build multiple bundles. 
+        // TODO: decide if we want a 'vendors' bundle with our dependencies and then other 'app' bundles
         exec: {
             bundleSfx: {
                cmd: function(module, bundlefile) {
@@ -65,17 +59,13 @@ module.exports = function (grunt) {
             }
         },
         
+        // Minify and whatnot our bundles for production
         uglify: {
-            options: {
-                mangle: {
-                    except: ['angular']
-                }
-            },
            all: {
                files: [{
                    expand: true,     // Enable dynamic expansion.
                    cwd: 'build/js',      // Src matches are relative to this path.
-                   src: ['templates.js', '**/*Bundle.js'], // Actual pattern(s) to match.
+                   src: ['**/*Bundle.js'], // Actual pattern(s) to match.
                    dest: 'build/js',
                    ext: '.min.js',   
                    extDot: 'first'   
@@ -83,6 +73,7 @@ module.exports = function (grunt) {
            } 
         },
 
+        // This will replace our development script tags with production ones pointing to our minified bundles
         processhtml: {
            build: {
                files: {
